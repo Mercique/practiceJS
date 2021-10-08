@@ -53,15 +53,35 @@ body
         path
             fill: #fff
     #todo__menu
-        display: flex
-        gap: 5px
-        flex-direction: column
+        max-height: 470px
+        overflow-y: auto
         margin: 20px 0
         .menu__task
+            display: flex
+            position: relative
+            overflow: hidden
             padding: 10px 20px
+            cursor: pointer
             border-radius: 20px
             color: #fff
             background: #260026
+            &:not(:last-of-type)
+                margin-bottom: 10px
+            &:hover .task-del
+                right: 0
+            .task-del
+                display: flex
+                position: absolute
+                top: 0
+                z-index: 9
+                right: -52px
+                padding: 9px 12px
+                cursor: pointer
+                border-radius: 0 20px 20px 0
+                background: #f00
+                transition: right .3s ease
+        .checked
+            background: rgba(38, 0, 38, .2)
     &__bottom
         display: flex
         align-items: center

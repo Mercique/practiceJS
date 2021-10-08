@@ -123,22 +123,50 @@ body {
 }
 
 .todo #todo__menu {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  gap: 5px;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  max-height: 470px;
+  overflow-y: auto;
   margin: 20px 0;
 }
 
 .todo #todo__menu .menu__task {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  overflow: hidden;
   padding: 10px 20px;
+  cursor: pointer;
   border-radius: 20px;
   color: #fff;
   background: #260026;
+}
+
+.todo #todo__menu .menu__task:not(:last-of-type) {
+  margin-bottom: 10px;
+}
+
+.todo #todo__menu .menu__task:hover .task-del {
+  right: 0;
+}
+
+.todo #todo__menu .menu__task .task-del {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  top: 0;
+  z-index: 9;
+  right: -52px;
+  padding: 9px 12px;
+  cursor: pointer;
+  border-radius: 0 20px 20px 0;
+  background: #f00;
+  -webkit-transition: right .3s ease;
+  transition: right .3s ease;
+}
+
+.todo #todo__menu .checked {
+  background: rgba(38, 0, 38, 0.2);
 }
 
 .todo__bottom {
