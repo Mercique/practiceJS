@@ -39,11 +39,11 @@ function addTask() {
         spanCheck.style.display = 'none';
 
         div.onclick = function () {
-            if (div.className != 'menu__task checked') {
-                div.classList.add('checked');
+            if (this.className != 'menu__task checked') {
+                this.classList.add('checked');
                 countP.innerHTML = 'Counter tasks: ' + count;
             } else {
-                div.classList.remove('checked');
+                this.classList.remove('checked');
             }
         };
 
