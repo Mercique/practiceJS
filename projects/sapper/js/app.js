@@ -1,6 +1,6 @@
-var FIELD_SIZE_X = 16,
+var FIELD_SIZE_X = 30,
     FIELD_SIZE_Y = 16,
-    bomb = 40,
+    bomb = 99,
     arrOpen = [];
 
 function init() {
@@ -14,11 +14,11 @@ function creatingPlayingField() {
         sapper_field = document.createElement('table');
 
     sapper_field.className = 'sapper__field';
-    for (var i = 1; i < FIELD_SIZE_X + 1; i++) {
+    for (var i = 1; i < FIELD_SIZE_Y + 1; i++) {
         var row = document.createElement('tr');
 
         row.className = 'sapper__field-row row-' + i;
-        for (var j = 1; j < FIELD_SIZE_Y + 1; j++) {
+        for (var j = 1; j < FIELD_SIZE_X + 1; j++) {
             var cell = document.createElement('td');
 
             cell.className = 'sapper__field-cell cell-' + i + '-' + j;
@@ -45,9 +45,6 @@ function startGame() {
                 }
                 alert('You Lose!!!');
             }
-            if (!this.innerText) {
-                openCell(this);
-            }
         }
         cell_btn[i].addEventListener('contextmenu', function() {
             if (this.classList.contains('context')) {
@@ -63,30 +60,6 @@ function startGame() {
     }
 
     setBomb();
-}
-
-function openCell(id) {
-    var arr_openCell = id.classList[0].split('-'),
-        openCell_x = +arr_openCell[2],
-        openCell_y = +arr_openCell[1];
-    
-    setOpen(openCell_y - 1, openCell_x); // сверху
-    setOpen(openCell_y + 1, openCell_x); // снизу
-    setOpen(openCell_y, openCell_x - 1); // слева
-    setOpen(openCell_y, openCell_x + 1); // справа
-    setOpen(openCell_y - 1, openCell_x - 1); // сверху-слева
-    setOpen(openCell_y - 1, openCell_x + 1); // сверху-справа
-    setOpen(openCell_y + 1, openCell_x - 1); // снизу-слева
-    setOpen(openCell_y + 1, openCell_x + 1); // снизу-справа
-}
-
-function setOpen(y, x) {
-    var checkOpen = document.querySelector('.cell-' + y + '-' + x);
-
-    if (checkOpen != undefined && !checkOpen.classList.contains('bomb')) {
-        checkOpen.classList.remove('sapper__field-cell');
-        checkOpen.classList.add('sapper__field-open');
-    }
 }
 
 function setBomb() {
@@ -150,10 +123,18 @@ function getNumber(y, x) {
                 break;
             case 4:
                 cell_count.innerText = 5;
-                cell_count.style.color = '#f0f';
+                cell_count.style.color = '#ffa500';
                 break;
             case 5:
                 cell_count.innerText = 6;
+                cell_count.style.color = '#f0f';
+                break;
+            case 6:
+                cell_count.innerText = 7;
+                cell_count.style.color = '#0ff';
+                break;
+            case 7:
+                cell_count.innerText = 8;
                 cell_count.style.color = '#f0f';
                 break;
             default:
