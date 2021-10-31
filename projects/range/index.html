@@ -4,15 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Range</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Roll</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div id="range">
-        <div class="range__progress"></div>
-        <div class="range__scroll"></div>
+    <div class="wrap">
+        <div class="range">
+            <h2 class="range__title">Range Slider</h2>
+
+            <div id="range__line">
+                <div class="range__progress"></div>
+                <div class="range__scroll"></div>
+            </div>
+
+            <div class="range__btn">
+                <button type="button" class="btn" id="active">Active</button>
+                <button type="button" class="btn" id="disabled" disabled>Disable</button>
+            </div>
+        </div>
     </div>
 
-    <script src="range.js"></script>
+    <script src="js/range.js"></script>
 </body>
 </html>
