@@ -1,3 +1,4 @@
+// Бинарный поиск O(logn)
 const binarySearch = (sortedArray, target) => {
   let left = 0;
   let right = sortedArray.length - 1;
