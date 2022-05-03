@@ -4,7 +4,7 @@ const binarySearch = (sortedArray, target) => {
   let middle;
   
   while (left <= right) {
-    middle = Math.round((right - left) / 2) + left;
+    middle = Math.floor((left + right) / 2);
 
     if (sortedArray[middle] === target) {
       return middle;
